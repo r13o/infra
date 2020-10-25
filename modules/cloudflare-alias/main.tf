@@ -15,6 +15,7 @@ resource "cloudflare_record" "www" {
   name    = "www"
   type    = "CNAME"
   value   = cloudflare_record.root.hostname
+  proxied = true
 }
 
 resource "cloudflare_page_rule" "redirect" {

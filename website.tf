@@ -9,7 +9,7 @@ data "cloudflare_accounts" "personal" {
 }
 
 locals {
-  account_id = one(data.cloudflare_accounts.personal.accounts[*].id)
+  account_id = data.cloudflare_accounts.personal.accounts.0.id
 }
 
 resource "cloudflare_pages_project" "website" {

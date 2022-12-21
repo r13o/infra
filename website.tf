@@ -15,8 +15,9 @@ resource "cloudflare_pages_project" "website" {
   source {
     type = "github"
     config {
-      owner     = var.gh_owner
-      repo_name = module.website.name
+      owner             = var.gh_owner
+      repo_name         = module.website.name
+      production_branch = "main"
     }
   }
 }

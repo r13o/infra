@@ -43,7 +43,7 @@ resource "cloudflare_pages_domain" "short" {
   domain       = cloudflare_record.root.hostname
 }
 
-resource "cloudflare_pages_domain" "short" {
+resource "cloudflare_pages_domain" "short_www" {
   account_id   = data.cloudflare_accounts.personal.id
   project_name = cloudflare_pages_project.website.name
   domain       = cloudflare_record.www.hostname

@@ -8,12 +8,8 @@ data "cloudflare_accounts" "personal" {
   name = "Romuald's Account"
 }
 
-locals {
-  account_id = data.cloudflare_accounts.personal.accounts.0.id
-}
-
 resource "cloudflare_pages_project" "website" {
-  account_id        = local.account_id
+  account_id        = local.cf_account_id
   name              = "r13o"
   production_branch = "main"
   source {
@@ -43,14 +39,13 @@ resource "cloudflare_record" "www" {
 }
 
 resource "cloudflare_pages_domain" "short" {
-  account_id   = local.account_id
+  account_id   = local.cf_account_id
   project_name = cloudflare_pages_project.website.name
   domain       = cloudflare_record.root.hostname
 }
 
 resource "cloudflare_pages_domain" "short_www" {
-  account_id   = local.account_id
+  account_id   = local.cf_account_id
   project_name = cloudflare_pages_project.website.name
   domain       = cloudflare_record.www.hostname
 }
-

@@ -7,6 +7,11 @@ variable "description" {
   default = ""
 }
 
+variable "homepage_url" {
+  type    = string
+  default = ""
+}
+
 variable "is_private" {
   type    = bool
   default = false

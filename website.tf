@@ -1,7 +1,8 @@
 module "website" {
-  source      = "./modules/github-repository"
-  name        = "website"
-  description = "Source code for the r13o.com website"
+  source       = "./modules/github-repository"
+  name         = "website"
+  description  = "Source code for the r13o.com website"
+  homepage_url = "https://r13o.com"
 }
 
 data "cloudflare_accounts" "personal" {

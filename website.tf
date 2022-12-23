@@ -13,6 +13,9 @@ resource "cloudflare_pages_project" "website" {
   account_id        = local.cf_account_id
   name              = "r13o"
   production_branch = "main"
+  build_config {
+    destination_dir = "public"
+  }
   source {
     type = "github"
     config {

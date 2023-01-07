@@ -1,5 +1,6 @@
 resource "cloudflare_zone" "alias" {
-  zone = var.domain_name
+  account_id = var.account_id
+  zone       = var.domain_name
 }
 
 resource "cloudflare_record" "root" {

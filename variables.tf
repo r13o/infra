@@ -4,6 +4,12 @@ variable "cf_token" {
   sensitive   = true
 }
 
+variable "cf_account_name" {
+  type        = string
+  description = "Cloudflare account name"
+  default     = "Romuald's Account"
+}
+
 variable "gh_token" {
   type        = string
   description = "GitHub personal access token"

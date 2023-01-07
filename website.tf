@@ -5,10 +5,6 @@ module "website" {
   homepage_url = "https://r13o.com"
 }
 
-data "cloudflare_accounts" "personal" {
-  name = "Romuald's Account"
-}
-
 resource "cloudflare_pages_project" "website" {
   account_id        = local.cf_account_id
   name              = "r13o"

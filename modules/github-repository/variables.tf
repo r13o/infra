@@ -26,3 +26,8 @@ variable "has_projects" {
   type    = bool
   default = false
 }
+
+variable "auto_init" {
+  type    = bool
+  default = false
+}

@@ -1,4 +1,4 @@
-module "website" {
+module "website_repository" {
   source       = "./modules/github-repository"
   name         = "website"
   description  = "Source code for the r13o.com website"
@@ -15,8 +15,8 @@ resource "cloudflare_pages_project" "website" {
   source {
     type = "github"
     config {
-      owner             = var.gh_owner
-      repo_name         = module.website.name
+      owner             = module.website_repository.owner
+      repo_name         = module.website_repository.name
       production_branch = "main"
     }
   }

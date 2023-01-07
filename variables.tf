@@ -10,6 +10,14 @@ variable "cf_account_name" {
   default     = "Romuald's Account"
 }
 
+variable "cf_tunnels" {
+  type        = list(string)
+  description = "List of Cloudflare Tunnels"
+  default = [
+    "bot",
+  ]
+}
+
 variable "gh_token" {
   type        = string
   description = "GitHub personal access token"

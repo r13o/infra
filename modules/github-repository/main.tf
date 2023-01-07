@@ -10,5 +10,7 @@ resource "github_repository" "repository" {
   has_projects = var.has_projects
   has_wiki     = false
 
+  auto_init = var.auto_init
+
   delete_branch_on_merge = true
 }

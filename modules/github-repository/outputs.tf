@@ -2,6 +2,10 @@ output "id" {
   value = github_repository.repository.repo_id
 }
 
+output "owner" {
+  value = split("/", github_repository.repository.full_name).0
+}
+
 output "name" {
   value = github_repository.repository.name
 }

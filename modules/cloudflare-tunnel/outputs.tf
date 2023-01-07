@@ -8,3 +8,7 @@ output "credentials" {
 }
 EOT
 }
+
+output "hostname" {
+  value = cloudflare_record.tunnel.hostname
+}

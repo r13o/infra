@@ -18,7 +18,7 @@ resource "github_repository_file" "tunnel_credentials" {
   for_each            = module.tunnels
   repository          = module.tunnels_repository.name
   branch              = "main"
-  file                = "${each.key}.${cloudflare_zone.short.zone}.json"
+  file                = "${each.value.hostname}.json"
   content             = each.value.credentials
   commit_message      = "Managed by Terraform"
   overwrite_on_create = true

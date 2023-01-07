@@ -8,6 +8,7 @@ The following permissions are required for the [Cloudflare provider][cf-provider
 
 - Account.Account Settings:Read
 - Account.Cloudflare Pages:Edit
+- Account.Cloudflare Tunnel:Edit
 - Zone.Zone:Edit
 - Zone.Zone Settings:Edit
 - Zone.Page Rules:Edit

@@ -38,7 +38,7 @@ resource "cloudflare_record" "hyperfetch_www" {
 }
 
 resource "cloudflare_page_rule" "redirect_hyperfetch_www" {
-  zone_id = cloudflare_zone.short.id
+  zone_id = cloudflare_zone.hyperfetch.id
   target  = "${cloudflare_record.hyperfetch_www.hostname}/*"
   actions {
     forwarding_url {

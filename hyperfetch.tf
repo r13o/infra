@@ -17,36 +17,12 @@ module "hyperfetch_repository" {
   name   = "hyperfetch"
 }
 
-resource "cloudflare_pages_project" "hyperfetch" {
-  account_id        = local.cf_account_id
-  name              = "hyperfetch"
-  production_branch = "main"
-  build_config {
-    build_command   = "curl -fsSL https://deno.land/x/install/install.sh | sh && /opt/buildhome/.deno/bin/deno task build"
-    destination_dir = "_site"
-  }
-  source {
-    type = "github"
-    config {
-      owner             = module.hyperfetch_repository.owner
-      repo_name         = module.hyperfetch_repository.name
-      production_branch = "main"
-    }
-  }
-}
-
 resource "cloudflare_record" "hyperfetch" {
   zone_id = cloudflare_zone.hyperfetch.id
   name    = "@"
   type    = "CNAME"
-  value   = cloudflare_pages_project.hyperfetch.subdomain
+  value   = "r13o.github.io"
   proxied = true
-}
-
-resource "cloudflare_pages_domain" "hyperfetch" {
-  account_id   = local.cf_account_id
-  project_name = cloudflare_pages_project.hyperfetch.name
-  domain       = cloudflare_record.hyperfetch.hostname
 }
 
 resource "github_actions_secret" "cf_token" {

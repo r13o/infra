@@ -39,10 +39,10 @@ resource "cloudflare_record" "hyperfetch_www" {
 
 resource "cloudflare_page_rule" "redirect_hyperfetch_www" {
   zone_id = cloudflare_zone.short.id
-  target  = "${cloudflare_record.www.hostname}/*"
+  target  = "${cloudflare_record.hyperfetch_www.hostname}/*"
   actions {
     forwarding_url {
-      url         = "http://${cloudflare_record.root.hostname}/$1"
+      url         = "http://${cloudflare_record.hyperfetch.hostname}/$1"
       status_code = 301
     }
   }

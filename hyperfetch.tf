@@ -48,3 +48,15 @@ resource "cloudflare_pages_domain" "hyperfetch" {
   project_name = cloudflare_pages_project.hyperfetch.name
   domain       = cloudflare_record.hyperfetch.hostname
 }
+
+resource "github_actions_secret" "cf_token" {
+  repository       = module.hyperfetch_repository.name
+  secret_name      = "CF_API_TOKEN"
+  encrypted_value  = var.gh_secret_cf_token
+}
+
+resource "github_actions_secret" "cf_account_id" {
+  repository       = module.hyperfetch_repository.name
+  secret_name      = "CF_ACCOUNT_ID"
+  encrypted_value  = local.cf_account_id
+}

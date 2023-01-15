@@ -29,3 +29,9 @@ variable "gh_owner" {
   description = "GitHub organization or individual user account"
   default     = "r13o"
 }
+
+variable "gh_secret_cf_token" {
+  type        = string
+  description = "Cloudflare API Token for GitHub Actions"
+  sensitive   = true
+}

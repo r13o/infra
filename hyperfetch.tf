@@ -21,6 +21,10 @@ resource "cloudflare_pages_project" "hyperfetch" {
   account_id        = local.cf_account_id
   name              = "hyperfetch"
   production_branch = "main"
+  build_config {
+    build_command   = "curl -fsSL https://deno.land/x/install/install.sh | sh && /opt/buildhome/.deno/bin/deno task build"
+    destination_dir = "_site"
+  }
   source {
     type = "github"
     config {

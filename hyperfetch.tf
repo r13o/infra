@@ -60,3 +60,9 @@ resource "github_actions_secret" "cf_account_id" {
   secret_name      = "CF_ACCOUNT_ID"
   plaintext_value  = local.cf_account_id
 }
+
+resource "cloudflare_worker_route" "hyperfetch" {
+  zone_id     = cloudflare_zone.hyperfetch.id
+  pattern     = "${cloudflare_record.hyperfetch.hostname}/http*"
+  script_name = "hyperfetch"
+}

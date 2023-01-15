@@ -35,3 +35,9 @@ variable "gh_secret_cf_token" {
   description = "Cloudflare API Token for GitHub Actions"
   sensitive   = true
 }
+
+variable "do_token" {
+  type        = string
+  description = "DigitalOcean API Token"
+  sensitive   = true
+}

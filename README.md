@@ -16,7 +16,7 @@ The following permissions are required for the [Cloudflare provider][cf-provider
 
 ## GitHub PAT
 
-[GitHub provider][gh-provider] requires a [personal access token][gh-pat] with access to **all repositories** and the following permissions:
+The [GitHub provider][gh-provider] requires a [fine-grained personal access token][gh-pat] with access to **all repositories** and the following permissions:
 
 - Administration: Read and write
 - Contents: Read and write

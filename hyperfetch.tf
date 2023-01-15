@@ -25,6 +25,14 @@ resource "cloudflare_record" "hyperfetch" {
   proxied = true
 }
 
+resource "cloudflare_record" "hyperfetch_www" {
+  zone_id = cloudflare_zone.hyperfetch.id
+  name    = "www"
+  type    = "CNAME"
+  value   = cloudflare_record.hyperfetch.hostname
+  proxied = true
+}
+
 resource "github_actions_secret" "cf_token" {
   repository       = module.hyperfetch_repository.name
   secret_name      = "CF_API_TOKEN"

@@ -77,9 +77,9 @@ resource "digitalocean_app" "hyperfetch" {
     }
 
     static_site {
-      name          = "website"
-      build_command = "curl -fsSL https://deno.land/x/install/install.sh | sh && ~/.deno/bin/deno task build"
-      output_dir    = "_site"
+      name            = "website"
+      dockerfile_path = "Dockerfile"
+      output_dir      = "/app/_site"
 
       github {
         branch         = "main"

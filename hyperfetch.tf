@@ -37,7 +37,7 @@ resource "cloudflare_record" "hyperfetch_www" {
   proxied = true
 }
 
-resource "cloudflare_page_rule" "redirect_www" {
+resource "cloudflare_page_rule" "redirect_hyperfetch_www" {
   zone_id = cloudflare_zone.short.id
   target  = "${cloudflare_record.www.hostname}/*"
   actions {

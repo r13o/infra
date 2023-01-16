@@ -13,4 +13,10 @@ resource "github_repository" "repository" {
   auto_init = var.auto_init
 
   delete_branch_on_merge = true
+
+  security_and_analysis {
+    advanced_security {
+      status = var.is_private ? var.advanced_security : "enabled"
+    }
+  }
 }

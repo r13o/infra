@@ -31,3 +31,13 @@ variable "auto_init" {
   type    = bool
   default = false
 }
+
+variable "advanced_security" {
+  type    = string
+  default = "enabled"
+
+  validation {
+    condition     = contains(["enabled", "disabled"], var.advanced_security)
+    error_message = "Allowed values for advanced_security are \"enabled\" or \"enabled\"."
+  }
+}

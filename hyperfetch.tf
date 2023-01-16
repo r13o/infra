@@ -9,7 +9,6 @@ resource "cloudflare_zone_settings_override" "hyperfetch" {
   settings {
     always_use_https         = "off"
     automatic_https_rewrites = "off"
-    universal_ssl            = "off"
   }
 }
 

@@ -19,6 +19,7 @@ The following permissions are required for the [Cloudflare provider][cf-provider
 
 The following permissions are required for the [GitHub Actions][gh-actions] to deploy Cloudflare Workers:
 
+- Account.Cloudflare Pages:Edit
 - Account.Workers Scripts:Edit
 
 ## GitHub PAT

@@ -5,9 +5,10 @@ resource "cloudflare_zone" "hyperfetch" {
 }
 
 module "hyperfetch_repository" {
-  source      = "./modules/github-repository"
-  name        = "hyperfetch"
-  description = "Just type hyperfetch.net/ in front of any URL to fetch"
+  source       = "./modules/github-repository"
+  name         = "hyperfetch"
+  description  = "Just type hyperfetch.net/ in front of any URL to fetch"
+  homepage_url = "https://${cloudflare_record.hyperfetch_howto.hostname}"
 }
 
 resource "cloudflare_record" "hyperfetch" {

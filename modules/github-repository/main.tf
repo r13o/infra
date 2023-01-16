@@ -18,5 +18,11 @@ resource "github_repository" "repository" {
     advanced_security {
       status = var.is_private ? var.advanced_security : "enabled"
     }
+    secret_scanning {
+      status = "disabled"
+    }
+    secret_scanning_push_protection {
+      status = "disabled"
+    }
   }
 }

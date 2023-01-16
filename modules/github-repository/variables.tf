@@ -34,10 +34,10 @@ variable "auto_init" {
 
 variable "advanced_security" {
   type    = string
-  default = "enabled"
+  default = "disabled"
 
   validation {
     condition     = contains(["enabled", "disabled"], var.advanced_security)
-    error_message = "Allowed values for advanced_security are \"enabled\" or \"enabled\"."
+    error_message = "Allowed values for advanced_security are \"enabled\" or \"disabled\"."
   }
 }

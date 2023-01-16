@@ -55,8 +55,8 @@ resource "cloudflare_pages_project" "hyperfetch" {
 resource "cloudflare_record" "hyperfetch_howto" {
   zone_id = cloudflare_zone.hyperfetch.id
   name    = "howto"
-  type    = "A"
-  value   = "192.0.2.1"
+  type    = "CNAME"
+  value   = cloudflare_pages_project.hyperfetch.subdomain
   proxied = true
 }
 
@@ -76,4 +76,10 @@ resource "github_actions_secret" "cf_account_id" {
   repository      = module.hyperfetch_repository.name
   secret_name     = "CF_ACCOUNT_ID"
   plaintext_value = local.cf_account_id
+}
+
+resource "cloudflare_worker_route" "hyperfetch" {
+  zone_id     = cloudflare_zone.hyperfetch.id
+  pattern     = "${cloudflare_record.hyperfetch.hostname}/*"
+  script_name = "hyperfetch"
 }
